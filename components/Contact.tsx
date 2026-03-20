@@ -58,7 +58,7 @@ export default function Contact() {
           >
             {/* Email Card */}
             <a
-              href="mailto:praveshverma@gmail.com"
+              href="mailto:praveshdhakad62@gmail.com"
               className="glass-card p-6 rounded-2xl border border-white/10 hover:border-indigo-500/40 flex flex-col items-start gap-4 transition-all duration-300 group hover:shadow-lg hover:shadow-indigo-500/10 block"
             >
               <div className="w-12 h-12 rounded-xl bg-indigo-500/15 flex items-center justify-center group-hover:bg-indigo-500/25 transition-colors">
@@ -66,7 +66,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-slate-200 font-semibold mb-1">Email Me</h3>
-                <p className="text-slate-400 text-sm">praveshverma@gmail.com</p>
+                <p className="text-slate-400 text-sm">praveshdhakad62@gmail.com</p>
               </div>
               <div className="mt-2 text-indigo-400 text-sm font-medium flex items-center gap-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
                 Write a message <ArrowUpRight size={14} />
@@ -105,7 +105,7 @@ export default function Contact() {
             className="lg:col-span-3 glass-card rounded-2xl border border-white/10 p-8"
           >
             <h3 className="text-2xl font-bold font-['Space_Grotesk'] text-slate-100 mb-6">Send a Message</h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid md:grid-cols-2 gap-5">
                 <div className="space-y-2">
@@ -150,11 +150,10 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === "submitting" || status === "success"}
-                className={`w-full py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300 ${
-                  status === "success" 
+                className={`w-full py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300 ${status === "success"
                     ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
                     : "bg-indigo-600 hover:bg-indigo-500 text-white hover:shadow-lg hover:shadow-indigo-500/25 border border-transparent"
-                }`}
+                  }`}
               >
                 {status === "idle" && (
                   <>
