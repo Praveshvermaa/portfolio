@@ -12,17 +12,39 @@ export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
-    // Simulate API call
-    setTimeout(() => {
-      setStatus("success");
-      setFormData({ name: "", email: "", message: "" });
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "2055e998-dc60-4eff-9229-c8018d8f2cac",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `New message from ${formData.name} via Portfolio`,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setStatus("idle"), 3000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 3000);
+      }
+    } catch {
+      setStatus("error");
       setTimeout(() => setStatus("idle"), 3000);
-    }, 1500);
+    }
   };
 
   return (
@@ -76,7 +98,7 @@ export default function Contact() {
             {/* Social Links Grid */}
             <div className="grid grid-cols-2 gap-4">
               <a
-                href="https://github.com/praveshverma"
+                href="https://github.com/Praveshvermaa/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card p-5 rounded-2xl border border-white/10 hover:border-white/30 flex flex-col items-center justify-center gap-3 transition-all duration-300 group"
@@ -85,7 +107,7 @@ export default function Contact() {
                 <span className="text-slate-300 text-sm font-medium">GitHub</span>
               </a>
               <a
-                href="https://linkedin.com/in/praveshverma"
+                href="https://www.linkedin.com/in/pravesh-verma/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card p-5 rounded-2xl border border-white/10 hover:border-[#0A66C2]/40 flex flex-col items-center justify-center gap-3 transition-all duration-300 group hover:shadow-lg hover:shadow-[#0A66C2]/10"
@@ -151,7 +173,9 @@ export default function Contact() {
                 type="submit"
                 disabled={status === "submitting" || status === "success"}
                 className={`w-full py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300 ${status === "success"
-                    ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+                  ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+                  : status === "error"
+                    ? "bg-red-500/20 text-red-400 border border-red-500/30"
                     : "bg-indigo-600 hover:bg-indigo-500 text-white hover:shadow-lg hover:shadow-indigo-500/25 border border-transparent"
                   }`}
               >
@@ -172,6 +196,9 @@ export default function Contact() {
                 )}
                 {status === "success" && (
                   <span>Message Sent Successfully!</span>
+                )}
+                {status === "error" && (
+                  <span>Failed to send. Please try again.</span>
                 )}
               </button>
             </form>

@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowDown, Sparkles } from "lucide-react";
 
 const socials = [
-  { icon: Github, href: "https://github.com/praveshverma", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/praveshverma", label: "LinkedIn" },
-  { icon: Mail, href: "mailto:praveshverma@gmail.com", label: "Email" },
+  { icon: Github, href: "https://github.com/Praveshvermaa/", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/pravesh-verma/", label: "LinkedIn" },
+  { icon: Mail, href: "mailto:praveshdhakad62@@gmail.com", label: "Email" },
 ];
 
 const floatingBadges = [

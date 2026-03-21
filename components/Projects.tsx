@@ -11,8 +11,8 @@ const projects = [
     description:
       "A geolocation-based skill marketplace where users can discover and connect with skilled professionals nearby. Features real-time chat, interactive Leaflet maps, and a seamless booking experience.",
     tech: ["Next.js", "TypeScript", "Supabase", "Leaflet", "Tailwind CSS", "Real-time Chat"],
-    github: "https://github.com/praveshverma/skilllink",
-    demo: "https://skilllink.vercel.app",
+    github: "https://github.com/Praveshvermaa/SkillLink",
+    demo: "http://skill-link-five-ruby.vercel.app/",
     accent: "indigo",
     gradient: "from-indigo-600/20 to-purple-600/10",
     iconBg: "bg-indigo-500/15",
@@ -27,8 +27,8 @@ const projects = [
     description:
       "AI-powered social media platform with NLP-based sentiment analysis for posts, Cloudinary media storage, real-time feeds, and a modern React + Express architecture.",
     tech: ["React", "Express", "MongoDB", "NLP", "Cloudinary", "REST API"],
-    github: "https://github.com/praveshverma/vibeverse",
-    demo: "https://vibeverse.vercel.app",
+    github: "https://github.com/Praveshvermaa/Your-Post-Client",
+    demo: "https://your-post-client.vercel.app/",
     accent: "purple",
     gradient: "from-purple-600/20 to-pink-600/10",
     iconBg: "bg-purple-500/15",
@@ -43,8 +43,8 @@ const projects = [
     description:
       "Full-stack academic notes sharing platform with JWT authentication, Cloudinary file uploads, and a rating-based filtering system to surface the best study materials.",
     tech: ["React", "Node.js", "MongoDB", "JWT Auth", "Cloudinary", "Express"],
-    github: "https://github.com/praveshverma/noteshub",
-    demo: "https://noteshub.vercel.app",
+    github: "https://github.com/Praveshvermaa/NotesHub-Client",
+    demo: "http://notes-hub-client-weld.vercel.app/",
     accent: "cyan",
     gradient: "from-cyan-600/20 to-teal-600/10",
     iconBg: "bg-cyan-500/15",
