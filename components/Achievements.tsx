@@ -26,7 +26,7 @@ const achievements = [
     icon: Medal,
     title: "State Topper (96.4%)",
     subtitle: "MP Board Exams",
-    description: "Achieved outstanding academic excellence, securing the top rank in the Madhya Pradesh state board examinations.",
+    description: "Achieved outstanding academic excellence, securing the rank under 10 in the Madhya Pradesh state board examinations.",
     color: "from-purple-400 to-pink-500",
     bg: "bg-purple-500/15",
     text: "text-purple-400"
