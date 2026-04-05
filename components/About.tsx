@@ -25,7 +25,8 @@ export default function About() {
       {/* subtle background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-950/5 to-transparent pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6" ref={ref}>
+      <div className="section-shell">
+        <div className="section-shell__inner" ref={ref}>
         {/* Section header */}
         <motion.div
           variants={fadeUp}
@@ -104,6 +105,7 @@ export default function About() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
         </div>
       </div>
     </section>

@@ -23,13 +23,134 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
+}
+
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
   line-height: 1.8;
   letter-spacing: 0.015em;
+  position: relative;
+}
+
+/* Full-bleed sections: no side padding or max-width column (edge-to-edge) */
+.section-shell {
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding-inline: 0;
+}
+
+.section-shell__inner {
+  box-sizing: border-box;
+  /* no display:* here — it would override Tailwind flex/grid on the same node (e.g. navbar) */
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin-inline: 0;
+}
+
+/*
+  Navbar: plain CSS flex + breakpoints so the bar stays one horizontal row even if
+  Tailwind utilities lose the cascade or responsive variants fail to apply.
+*/
+.nav-bar {
+  width: 100%;
+}
+
+.nav-bar__row {
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .nav-bar__row {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.nav-bar__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .nav-bar__links {
+    display: flex !important;
+    flex-wrap: nowrap;
+  }
+}
+
+.nav-bar__links > li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar__hire {
+  display: none !important;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .nav-bar__hire {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.nav-bar__menu-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .nav-bar__menu-btn {
+    display: none !important;
+  }
+}
+
+.nav-bar__brand {
+  flex-shrink: 0;
+}
+
+/* App wrapper – clips horizontal overflow */
+.app-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  position: relative;
 }
 
 /* Scrollbar */
@@ -45,6 +166,12 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #8b5cf6;
+}
+
+/* Edge / Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6366f1 #0a0a0f;
 }
 
 /* Glass Card */
@@ -94,11 +221,23 @@ body {
 .noise::before {
   content: '';
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 0;
   opacity: 0.4;
+}
+
+/* Full-width sections; clip decorative overflow */
+section {
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Tech Badge */

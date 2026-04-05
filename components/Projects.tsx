@@ -74,7 +74,8 @@ export default function Projects() {
     <section id="projects" className="py-28 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-950/5 to-transparent pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6" ref={ref}>
+      <div className="section-shell">
+        <div className="section-shell__inner" ref={ref}>
         {/* Header */}
         <motion.div
           variants={fadeUp}
@@ -87,7 +88,7 @@ export default function Projects() {
           <h2 className="section-title text-4xl md:text-5xl text-slate-100 mt-3">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-slate-400 mt-4 max-w-xl mx-auto">
+          <p className="text-slate-400 mt-4">
             A selection of full-stack applications built with modern technologies.
           </p>
         </motion.div>
@@ -165,6 +166,7 @@ export default function Projects() {
               </motion.div>
             );
           })}
+        </div>
         </div>
       </div>
     </section>

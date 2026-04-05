@@ -39,25 +39,26 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`nav-bar fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "glass-card shadow-lg shadow-black/20"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="w-full py-4">
+        <div className="nav-bar__row">
         {/* Logo */}
         <motion.a
           href="#hero"
           whileHover={{ scale: 1.05 }}
-          className="font-bold text-xl font-['Space_Grotesk']"
+          className="nav-bar__brand font-bold text-xl font-['Space_Grotesk']"
         >
           <span className="gradient-text">PV</span>
           <span className="text-slate-400 text-sm ml-1">.dev</span>
         </motion.a>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center gap-1">
+        <ul className="nav-bar__links">
           {navLinks.map((link) => (
             <li key={link.label}>
               <a
@@ -85,18 +86,22 @@ export default function Navbar() {
         {/* Resume Button */}
         <a
           href="mailto:praveshverma@example.com"
-          className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-indigo-600 hover:bg-indigo-500 text-white transition-all duration-200 hover:shadow-lg hover:shadow-indigo-500/25"
+          className="nav-bar__hire gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-indigo-600 hover:bg-indigo-500 text-white transition-all duration-200 hover:shadow-lg hover:shadow-indigo-500/25"
         >
           Hire Me
         </a>
 
         {/* Mobile toggle */}
         <button
+          type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-slate-300 p-2"
+          className="nav-bar__menu-btn text-slate-300 p-2"
+          aria-expanded={isOpen}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -108,7 +113,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden glass-card border-t border-white/5"
           >
-            <ul className="px-6 py-4 flex flex-col gap-2">
+            <ul className="px-4 py-4 flex flex-col gap-2">
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <a

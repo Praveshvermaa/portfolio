@@ -22,6 +22,7 @@ export default function Home() {
 
   return (
     <>
+    <div className="app-wrapper">
       <AnimatePresence>
         {loading && (
           <motion.div
@@ -55,7 +56,7 @@ export default function Home() {
       </AnimatePresence>
 
       {!loading && (
-        <main className="min-h-screen noise relative">
+        <main className="min-h-screen noise relative w-full max-w-full overflow-x-clip">
           <Navbar />
           <Hero />
           <About />
@@ -72,6 +73,7 @@ export default function Home() {
           </footer>
         </main>
       )}
+    </div>
     </>
   );
 }

@@ -48,7 +48,8 @@ export default function Achievements() {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10" ref={ref}>
+      <div className="section-shell">
+        <div className="section-shell__inner" ref={ref}>
         {/* Header */}
         <motion.div
           variants={fadeUp}
@@ -65,7 +66,7 @@ export default function Achievements() {
           <h2 className="section-title text-4xl md:text-5xl text-slate-100 mt-3">
             Key <span className="gradient-text">Achievements</span>
           </h2>
-          <p className="text-slate-400 mt-4 max-w-xl mx-auto">
+          <p className="text-slate-400 mt-4">
             Highlights from my competitive programming and academic journey.
           </p>
         </motion.div>
@@ -110,6 +111,7 @@ export default function Achievements() {
               </motion.div>
             );
           })}
+        </div>
         </div>
       </div>
     </section>

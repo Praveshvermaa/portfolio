@@ -45,7 +45,8 @@ export default function Hero() {
       ))}
 
       {/* Main content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+      <div className="section-shell text-center">
+        <div className="section-shell__inner">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -88,7 +89,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-slate-400 text-lg md:text-xl mb-10 leading-relaxed"
         >
           Building scalable web apps with{" "}
           <span className="text-indigo-300 font-medium">MERN</span>,{" "}
@@ -139,6 +140,7 @@ export default function Hero() {
             </motion.a>
           ))}
         </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}

@@ -76,7 +76,8 @@ export default function Skills() {
     <section id="skills" className="py-28 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-950/5 to-transparent pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6" ref={ref}>
+      <div className="section-shell">
+        <div className="section-shell__inner" ref={ref}>
         {/* Header */}
         <motion.div
           variants={fadeUp}
@@ -89,7 +90,7 @@ export default function Skills() {
           <h2 className="section-title text-4xl md:text-5xl text-slate-100 mt-3">
             Technical <span className="gradient-text">Skills</span>
           </h2>
-          <p className="text-slate-400 mt-4 max-w-lg mx-auto text-sm">
+          <p className="text-slate-400 mt-4 text-sm">
             Technologies and tools I&apos;ve worked with across the full development stack.
           </p>
         </motion.div>
@@ -137,6 +138,7 @@ export default function Skills() {
               </motion.div>
             );
           })}
+        </div>
         </div>
       </div>
     </section>

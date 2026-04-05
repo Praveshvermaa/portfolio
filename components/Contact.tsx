@@ -51,7 +51,8 @@ export default function Contact() {
     <section id="contact" className="py-28 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-950/10 to-indigo-950/20 pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10" ref={ref}>
+      <div className="section-shell">
+        <div className="section-shell__inner" ref={ref}>
         {/* Header */}
         <motion.div
           variants={fadeUp}
@@ -64,7 +65,7 @@ export default function Contact() {
           <h2 className="section-title text-4xl md:text-5xl text-slate-100 mt-3">
             Let&apos;s <span className="gradient-text">Connect</span>
           </h2>
-          <p className="text-slate-400 mt-4 max-w-lg mx-auto">
+          <p className="text-slate-400 mt-4">
             I&apos;m currently open to new opportunities. Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
           </p>
         </motion.div>
@@ -203,6 +204,7 @@ export default function Contact() {
               </button>
             </form>
           </motion.div>
+        </div>
         </div>
       </div>
     </section>
